@@ -16,8 +16,14 @@ export default function RootLayout({ children }) {
         <header className="bg-gray-700 text-white">
           <h2>MEUS PRODUTOS</h2>
           <ul>
-          <li>
+            <li>
+              <Link href="/requests">REQUESTS</Link>
+            </li>
+            <li>
               <Link href="/">HOME</Link>
+            </li>
+            <li>
+              <Link href="/upload">UPLOAD-FILES</Link>
             </li>
             <li>
               <Link href="/produtos/calca">CALÇA</Link>
