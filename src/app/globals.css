@@ -2,18 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities{
+    .reset{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+}
+
 @layer components {
   .cabecalho {
-    @apply bg-slate-800 text-white font-bold py-2 px-4 text-center text-4xl;
+    @apply bg-slate-800 text-white font-bold px-4 text-center text-4xl;
 
     & ul{
-        @apply flex flex-row text-lg;
+        @apply flex flex-row text-lg border border-t-red-700 border-l-0 border-r-0 border-b-0;
         
         & li{
             @apply mx-auto;
 
             & a{
-                @apply block  hover:bg-amber-400 py-1 px-3 rounded-md transition duration-300 ease-out;
+                @apply block  hover:bg-amber-400 py-3 px-3 rounded-md transition duration-300 ease-out;
             }
         }
     }
