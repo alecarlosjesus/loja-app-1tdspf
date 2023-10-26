@@ -27,8 +27,33 @@
     }
   }
 
+    .eletro-view{
+        @apply mb-5;
+        & h1{
+            @apply text-4xl text-center font-bold text-slate-800 my-4 ;
+        }
+
+        & ul{
+            @apply flex flex-row flex-wrap justify-center;
+            & li{
+                @apply mx-4 my-4;
+
+            & figure{
+                @apply w-64 h-64;
+                & img{
+                    @apply w-full h-full object-cover;
+                }
+            }   
+                
+                & a{
+                    @apply block  hover:bg-amber-400 rounded-md transition duration-300 ease-out;
+                }
+            }
+        }
+    }
+
   .rodape {
-    @apply fixed w-full bottom-0 bg-slate-800 text-white font-bold py-2 px-4 text-center text-lg;
+    @apply static w-full bottom-0 bg-slate-800 text-white font-bold py-2 px-4 text-center text-lg;
             & a{
                 @apply block  hover:bg-amber-400 py-1 px-3 rounded-md transition duration-300 ease-out;
             }

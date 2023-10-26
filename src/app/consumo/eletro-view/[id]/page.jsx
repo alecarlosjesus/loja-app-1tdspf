@@ -15,7 +15,7 @@ export default async function EletroViewID({params}) {
         }
 
   return (
-    <div className="eletro-view">
+    <div className="eletro-view h-screen-80">
         <h1>Consumo de Eletrodomésticos</h1>
         <div>
             <ul>

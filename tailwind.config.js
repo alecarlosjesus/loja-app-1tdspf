@@ -17,6 +17,10 @@ module.exports = {
       },width:{
         '50':'50%'
       },
+      height:{
+        'screen-20':'20vh',
+        'screen-80':'80vh',
+      },
     },
   },
   plugins: [],
