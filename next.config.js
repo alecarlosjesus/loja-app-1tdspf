@@ -18,6 +18,14 @@ module.exports = {
                 port: '',
                 pathname: '/u/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'img.freepik.com',
+                port: '',
+                pathname: '/fotos-gratis/**',
+            },
+
+
         ],
      },
 }

@@ -9,7 +9,7 @@ export default function Cabecalho() {
           <Link href="/">HOME</Link>
         </li>
         <li>
-          <Link href="/usuarios-git">GIT-USERS</Link>
+          <Link href="/consumo/eletro-view">ELETRÔNICOS</Link>
         </li>
         <li>
           <Link href="/produtos/calca">CALÇA</Link>

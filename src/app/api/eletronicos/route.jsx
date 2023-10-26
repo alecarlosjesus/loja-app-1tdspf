@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server";
 
 const eletros = [
     {"id":1,"nome":"Phone de Ouvido","desc":"Phone de Ouvido","preco":100.00,"img":"https://img.freepik.com/fotos-gratis/fone-de-ouvido-preto-dispositivo-digital_53876-97302.jpg"},
@@ -17,5 +18,6 @@ const eletros = [
 
 export async function GET() {
 
-
+    //GET ALL
+    return NextResponse.json(eletros);
 }
