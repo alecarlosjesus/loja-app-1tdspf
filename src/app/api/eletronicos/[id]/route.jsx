@@ -16,8 +16,15 @@ const eletros = [
     {"id":13,"nome":"Tablet","desc":"Tablet","preco":1000.00,"img":"https://img.freepik.com/fotos-gratis/tablet-de-computador_53876-97314.jpg"}
 ];
 
-export async function GET() {
+export async function GET(request,{params}) {
+    //GET BY ID
+    const id = params.id;
+    if (id > 0 && id <= eletros.length) {
+        const eletro = eletros.find((item) => item.id == id);
+        return NextResponse.json(eletro);
+    }else{
+        return (id == 0 ? NextResponse.json(eletros) : NextResponse.redirect('http://localhost:3000/error'));
+    }
 
-    //GET ALL
-    return NextResponse.json(eletros);
+    
 }

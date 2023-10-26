@@ -1,15 +1,14 @@
 import Image from "next/image";
-import Link from "next/link";
 import { redirect } from "next/navigation";
 
-export default async function EletroView() {
+export default async function EletroViewID({params}) {
 
-        let eletros;
+        let item;
 
         try {
-            const response = await fetch('http://localhost:3000/api/eletronicos');
-            eletros = await response.json();
-            console.log(eletros);
+            const response = await fetch(`http://localhost:3000/api/eletronicos/${params.id}`);
+            item = await response.json();
+            console.log(item);
         } catch (error) {
             console.log(error);
             redirect('/error');
@@ -18,21 +17,17 @@ export default async function EletroView() {
   return (
     <div className="eletro-view">
         <h1>Consumo de Eletrodomésticos</h1>
-        <div> 
+        <div>
             <ul>
                 {
-                    eletros.map((item)=>(
                         <li key={item.id}>
-                            <Link href={`/consumo/eletro-view/${item.id}`}>
                             <h2>{item.nome}</h2>
                             <figure>
                                 <Image src={item.img} alt={item.desc} width={300} height={300} />
                                 <figcaption>{item.desc} - <span>R$ {item.preco}</span></figcaption>
                             </figure>
-                            </Link>
                         </li>
-                    ))
-                }
+                 }
             </ul>
         </div>
     </div>
