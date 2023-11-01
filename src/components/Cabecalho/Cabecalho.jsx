@@ -9,6 +9,9 @@ export default function Cabecalho() {
           <Link href="/">HOME</Link>
         </li>
         <li>
+          <Link href="/login">LOGIN</Link>
+        </li>
+        <li>
           <Link href="/consumo/eletro-view">ELETRÔNICOS</Link>
         </li>
         <li>
