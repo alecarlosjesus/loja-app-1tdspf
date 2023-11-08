@@ -71,7 +71,7 @@
         }
 
         & input{
-            @apply outline-none appearance-none w-full px-3 py-2 border border-gray-400 rounded mb-5;
+            @apply outline-none appearance-none w-full px-3 py-2 border border-gray-400 rounded mb-5 text-black;
         }
 
         & button{
@@ -79,5 +79,18 @@
         }
     
     }
+
+    .login-sucesso{
+        @apply bg-green-400 text-green-800 border-2 border-green-800 text-center text-3xl rounded m-10 font-extrabold;
+    }
+
+    .login-erro{
+        @apply bg-red-400 text-red-800 border-2 border-red-800 text-center text-3xl rounded m-10 font-extrabold;
+    }
+
+    .login-none{
+        @apply hidden;
+    }
+
 
 }
