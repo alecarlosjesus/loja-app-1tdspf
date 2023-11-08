@@ -53,11 +53,31 @@
     }
 
   .rodape {
-    @apply static w-full bottom-0 bg-slate-800 text-white font-bold py-2 px-4 text-center text-lg;
+    @apply fixed w-full bottom-0 bg-slate-800 text-white font-bold py-2 px-4 text-center text-lg;
             & a{
                 @apply block  hover:bg-amber-400 py-1 px-3 rounded-md transition duration-300 ease-out;
             }
         
+    }
+
+    .form-login{
+        @apply bg-slate-800 border border-red-700 w-9/12 h-96 m-auto text-white font-extrabold text-2xl p-2;
+        & legend{
+            @apply text-center p-2;
+        }
+
+        & label{
+            @apply inline-block w-32 pr-4 pl-4 pt-2 pb-2 leading-tight ;
+        }
+
+        & input{
+            @apply outline-none appearance-none w-full px-3 py-2 border border-gray-400 rounded mb-5;
+        }
+
+        & button{
+            @apply bg-slate-800 border-2 border-red-700 hover:bg-green-700 text-white font-bold py-2 rounded block m-auto p-5 transition ease-out duration-300;
+        }
+    
     }
 
 }

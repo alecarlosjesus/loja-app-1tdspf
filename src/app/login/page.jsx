@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Login() {
     
@@ -7,14 +7,26 @@ export default function Login() {
         "email" : "",
         "senha" : ""
     })
-      
+
+    const [msgStatus, setMsgStatus] = useState("");
+    const [classeMsg, setClasseMsg] = useState("");
+
+    useEffect(() => {
+      //Só será executado, caso o estado do msgStatus se alterar.
+        if(msgStatus == "Login realizado com SUCESSO!"){
+            setClasseMsg("login-sucesso");
+        }else if(msgStatus == "Nome de usuário ou senha inválidos!"){
+            setClasseMsg("login-erro");
+        }else{
+            setClasseMsg("login-none");
+        }
+
+    }, [msgStatus])
+          
     const handleChange = async (e)=>{
-        
         const {name, value} = e.target;
-
-        setUsuario({...usuario,[name]:value});
+    setUsuario({...usuario,[name]:value});
     };
-
 
     const handleSubmit = async (e)=>{
         e.preventDefault();
@@ -31,9 +43,9 @@ export default function Login() {
             if(response.ok){
                 const status = await response.json();
                 if(status.status){
-                    alert("Login realizado com SUCESSO!!");
+                   setMsgStatus("Login realizado com SUCESSO!");
                 }else{
-                    alert("Email ou Senha incorretos!!!");
+                    setMsgStatus("Nome de usuário ou senha inválidos!");
                     setUsuario({
                         "email":"",
                         "senha":""
@@ -50,7 +62,7 @@ export default function Login() {
 
   return (
     <div>
-        <h1>Identificação de Usuários</h1>
+        <h1 className="text-4xl text-center p-2 font-extrabold">Identificação de Usuários</h1>
         <h2>-</h2>
         <div className="form-login">
             <form onSubmit={handleSubmit}>
