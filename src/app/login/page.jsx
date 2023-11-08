@@ -49,6 +49,12 @@ export default function Login() {
                 if(status.status){
                    setMsgStatus("Login realizado com SUCESSO!");
 
+                    //Gerando o Token:
+                    const tokenUser = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2);
+
+                   //Criando o token de autenticação do usuário:
+                   sessionStorage.setItem("token-user",tokenUser);
+
                    setTimeout(()=>{
                     //Redirecionando o usuário!
                     navigate.push("/");
