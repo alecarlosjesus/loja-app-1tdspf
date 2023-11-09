@@ -3,8 +3,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function Cabecalho() {
-
-  
   
   const handleLogout = ()=>{
     sessionStorage.removeItem("token-user");
@@ -17,7 +15,7 @@ export default function Cabecalho() {
   return (
     <header className="cabecalho">
       <div>
-        <p> {usuario != null ? `Olá :${usuario.email}`: ""}</p>
+        <p> {usuario != null ? `Olá : ${usuario.email}`: ""}</p>
       </div>
       <h2>MEUS PRODUTOS</h2>
       <ul>

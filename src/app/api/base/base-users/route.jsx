@@ -43,13 +43,37 @@ const handleLogin = async (email,senha)=>{
     }
 }
 
-//
+//Criando a função POST para realizar o cadastramento de usuários:
+const handleCadastro = async (nome,email,senha)=>{
+    //Criando uma chamada para acessar e ler o arquivo JSON que foi criado!!!
+    const file =  await fs.readFile(process.cwd() + "/src/app/api/base/db.json","utf8");
+
+    //Recuperando a lista de usuários do arquivo JSON, realizando um
+    //parse de arquivo para JSON para tornar o arquivo um objeto manipulável.
+    const lista = await JSON.parse(file);
+ 
+    //Gerar um id para o novo usuário:
+    const id = lista.usuarios[lista.usuarios.length-1].id + 1;
+
+    //Criando o objeto do novo usuário:
+    const novoUsuario = {id,nome,email,senha};
+
+    //Adicionando o novo usuário na lista de usuários:
+    lista.usuarios.push(novoUsuario);
+
+    //Salvando a lista de usuários no arquivo JSON:
+    await fs.writeFile(process.cwd() + "/src/app/api/base/db.json",JSON.stringify(lista));
+
+    //Retornando o status do request!
+    return novoUsuario;
+
+}
 
 export async function POST(request, response){
         
         //Recuperando os dados da requisição:
         //Realizando a desestruturação do objeto request.json() para recuperar os dados do request.
-        const {info,email,senha} = await request.json();
+        const {info,nome,email,senha} = await request.json();
 
         //Determinando o status da operação:
         switch (info) {
@@ -61,7 +85,12 @@ export async function POST(request, response){
                     return NextResponse.json({"status":true,"user":user});
                 }
             case "cadastro":
-                return NextResponse.json({status:false});
+                //Realizando a chamada da função de cadastro:
+                const novoUsuario = await handleCadastro(nome,email,senha);
+                if(novoUsuario){
+                    //Retornando o status do request!
+                    return NextResponse.json({"status":true,"user":novoUsuario});
+                }
             default:
                 return NextResponse.json({status:false});
         }
