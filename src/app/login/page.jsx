@@ -8,6 +8,7 @@ export default function Login() {
     const navigate = useRouter();
 
     const [usuario, setUsuario] = useState({
+        "info": "login",
         "email" : "",
         "senha" : ""
     })
@@ -45,8 +46,8 @@ export default function Login() {
             });
 
             if(response.ok){
-                const status = await response.json();
-                if(status.status){
+                const data = await response.json();
+                if(data.status){
                    setMsgStatus("Login realizado com SUCESSO!");
 
                     //Gerando o Token:
