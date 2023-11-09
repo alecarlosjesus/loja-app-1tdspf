@@ -58,7 +58,7 @@ export async function POST(request, response){
                 const user = await handleLogin(email,senha);
                 if(user){
                     //Retornando o status do request!
-                    return NextResponse.json({status:true,"user":user});
+                    return NextResponse.json({"status":true,"user":user});
                 }
             case "cadastro":
                 return NextResponse.json({status:false});

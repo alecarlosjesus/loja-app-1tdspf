@@ -56,6 +56,9 @@ export default function Login() {
                    //Criando o token de autenticação do usuário:
                    sessionStorage.setItem("token-user",tokenUser);
 
+                    //Adicionando o objeto do usuário na sessão:
+                    sessionStorage.setItem("user-obj",JSON.stringify(data.user));
+
                    setTimeout(()=>{
                     //Redirecionando o usuário!
                     navigate.push("/");
